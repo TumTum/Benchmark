@@ -75,7 +75,8 @@ final class Benchmark implements BenchmarkInterface, ServiceFunctionsInterface
      */
     public function __construct()
     {
-        static::$objectCount++;
+        self::$instance = $this;
+        self::$objectCount++;
     }
 
     // --------------------------------------------------------------------------
@@ -87,7 +88,7 @@ final class Benchmark implements BenchmarkInterface, ServiceFunctionsInterface
      */
     public function __destruct()
     {
-        static::$objectCount--;
+        self::$objectCount--;
     }
 
     // --------------------------------------------------------------------------
@@ -114,21 +115,21 @@ final class Benchmark implements BenchmarkInterface, ServiceFunctionsInterface
     private function getStats()
     {
         $dataBoard  = (true === $this->display) ?
-            (static::CRLF . '<pre id="bench">' . static::CRLF) : (static::CRLF.'    <!--');
+            (self::CRLF . '<pre id="bench">' . self::CRLF) : (self::CRLF.'    <!--');
 
         $dataBoard .=
 
-            ' ======== [ BENCHMARK DATA ] ======== ' . static::CRLF .
-            '    Elapsed Time: ' . $this->getTime() . static::CRLF .
-            '    Elapsed Time: ' . $this->getTime(true) . ' (micro)' . static::CRLF .
-            '    Memory Usage: ' . $this->getMemoryUsage() . static::CRLF .
+            ' ======== [ BENCHMARK DATA ] ======== ' . self::CRLF .
+            '    Elapsed Time: ' . $this->getTime() . self::CRLF .
+            '    Elapsed Time: ' . $this->getTime(true) . ' (micro)' . self::CRLF .
+            '    Memory Usage: ' . $this->getMemoryUsage() . self::CRLF .
             '     Peak Memory: ' . $this->getPeakMemory(false, '%.3f%s') .
-            ' (or '.$this->getPeakMemory(true).' bytes)'.static::CRLF .
-            '            Date: '. date(static::MYSQL_DATE_FORMAT). static::CRLF .
+            ' (or '.$this->getPeakMemory(true).' bytes)'.self::CRLF .
+            '            Date: '. date(self::MYSQL_DATE_FORMAT). self::CRLF .
             '    ===================================== ';
 
         $dataBoard .= (true === $this->display) ?
-            (static::CRLF . '</pre>') : ('-->');
+            (self::CRLF . '</pre>') : ('-->');
 
         return $dataBoard;
     }
@@ -154,11 +155,11 @@ final class Benchmark implements BenchmarkInterface, ServiceFunctionsInterface
      */
     public static function getNewInstance($instanceName)
     {
-        if (! array_key_exists($instanceName, static::$instances)) {
-            static::$instances[$instanceName] = new static();
+        if (! array_key_exists($instanceName, self::$instances)) {
+            self::$instances[$instanceName] = new static();
         }
 
-        return static::$instances[$instanceName];
+        return self::$instances[$instanceName];
     }
 
     // --------------------------------------------------------------------------
@@ -177,7 +178,7 @@ final class Benchmark implements BenchmarkInterface, ServiceFunctionsInterface
     {
         $elapsed = $this->stop - $this->start;
 
-        return $raw ? $elapsed : static::readableElapseTime($elapsed, $format);
+        return $raw ? $elapsed : self::readableElapseTime($elapsed, $format);
     }
 
     // --------------------------------------------------------------------------
@@ -196,7 +197,7 @@ final class Benchmark implements BenchmarkInterface, ServiceFunctionsInterface
     {
         $memory = memory_get_peak_usage(true);
 
-        return $raw ? $memory : static::readableMemorySize($memory, $format);
+        return $raw ? $memory : self::readableMemorySize($memory, $format);
     }
 
     // --------------------------------------------------------------------------
@@ -225,7 +226,7 @@ final class Benchmark implements BenchmarkInterface, ServiceFunctionsInterface
             ));
         }
 
-        return $raw ? $this->memoryUse : static::readableMemorySize($this->memoryUse, $format);
+        return $raw ? $this->memoryUse : self::readableMemorySize($this->memoryUse, $format);
     }
 
     // --------------------------------------------------------------------------

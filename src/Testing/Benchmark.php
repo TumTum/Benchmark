@@ -241,7 +241,7 @@ final class Benchmark implements BenchmarkInterface, ServiceFunctionsInterface
      */
     private static function readableMemorySize($size = null, $format = null)
     {
-        /** A decimal point rounding **/
+        /* A decimal point rounding */
         $round = 3;
         $mod = 1024;
         $units = explode(':', 'B:Kb:Mb:Gb:Tb');
@@ -273,7 +273,7 @@ final class Benchmark implements BenchmarkInterface, ServiceFunctionsInterface
      */
     private static function readableElapseTime($microtime = null, $format = null)
     {
-        /** A decimal point rounding **/
+        /* A decimal point rounding */
         $round = 3;
 
         $format = is_null($format)

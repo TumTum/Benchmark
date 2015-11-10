@@ -141,7 +141,7 @@ final class Benchmark implements BenchmarkInterface, ServiceFunctionsInterface
      */
     public function stop($display = false)
     {
-        $this->display = ! empty($display) ? true : false;
+        $this->display = !empty($display) ? true : false;
         $this->stop = microtime(true);
         $this->memoryUse = memory_get_usage(true);
 
@@ -155,7 +155,7 @@ final class Benchmark implements BenchmarkInterface, ServiceFunctionsInterface
      */
     public static function getNewInstance($instanceName)
     {
-        if (! array_key_exists($instanceName, self::$instances)) {
+        if (!array_key_exists($instanceName, self::$instances)) {
             self::$instances[$instanceName] = new static();
         }
 
@@ -217,7 +217,7 @@ final class Benchmark implements BenchmarkInterface, ServiceFunctionsInterface
         /**
          * Check Arguments
          */
-        if (! is_bool($raw)) {
+        if (!is_bool($raw)) {
             throw new \Exception(sprintf(
                 'Required in "%s". Parameter %s must exist and be of type boolean. %s',
                 'Benchmark::getMemoryUsage()',

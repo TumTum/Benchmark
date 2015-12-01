@@ -43,7 +43,7 @@ final class Benchmark implements BenchmarkInterface, ServiceFunctionsInterface
      *
      * @api
      */
-    const VERSION = '1.4.0';
+    const VERSION = '1.5.0';
 
     // --------------------------------------------------------------------------
 

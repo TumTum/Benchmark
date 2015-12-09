@@ -5,7 +5,7 @@
 [![Total Downloads](https://poser.pugx.org/ucsdmath/Testing/downloads)](https://packagist.org/packages/ucsdmath/Testing)
 [![Latest Unstable Version](https://poser.pugx.org/ucsdmath/Testing/v/unstable)](https://packagist.org/packages/ucsdmath/Testing)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/ucsdmath/Testing/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/ucsdmath/Testing/?branch=master)
-[![Build Status](https://scrutinizer-ci.com/g/ucsdmath/Testing/badges/build.png?b=master)](https://scrutinizer-ci.com/g/ucsdmath/Testing/code-structure/master)
+[![Build Status](https://scrutinizer-ci.com/g/ucsdmath/Testing/badges/build.png?b=master)](https://scrutinizer-ci.com/g/ucsdmath/Testing/build-status/master)
 
 Testing is a testing and development library only. This is not to be used in a production.
 

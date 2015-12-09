@@ -153,7 +153,7 @@ final class Benchmark implements BenchmarkInterface
     public static function getNewInstance($instanceName)
     {
         if (!array_key_exists($instanceName, self::$instances)) {
-            self::$instances[$instanceName] = new static();
+            self::$instances[$instanceName] = new self();
         }
 
         return self::$instances[$instanceName];
@@ -166,12 +166,12 @@ final class Benchmark implements BenchmarkInterface
      */
     public static function init()
     {
-        if (null === static::$instance) {
-            static::$instance = new static;
-            static::$objectCount++;
+        if (null === self::$instance) {
+            self::$instance = new self();
+            self::$objectCount++;
         }
 
-        return static::$instance;
+        return self::$instance;
     }
 
     // --------------------------------------------------------------------------
@@ -181,7 +181,7 @@ final class Benchmark implements BenchmarkInterface
      */
     public static function getInstanceCount()
     {
-        return (int) static::$objectCount;
+        return (int) self::$objectCount;
     }
 
     // --------------------------------------------------------------------------

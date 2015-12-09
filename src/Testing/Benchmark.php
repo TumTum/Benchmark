@@ -11,9 +11,6 @@
 
 namespace UCSDMath\Testing;
 
-use UCSDMath\Functions\ServiceFunctions;
-use UCSDMath\Functions\ServiceFunctionsInterface;
-
 /**
  * Benchmark provides an abstract base class implementation of {@link BenchmarkInterface}.
  * Primarily, this services the fundamental implementations for testing PHP.
@@ -34,7 +31,7 @@ use UCSDMath\Functions\ServiceFunctionsInterface;
  *
  * @author Daryl Eisner <deisner@ucsd.edu>
  */
-final class Benchmark implements BenchmarkInterface, ServiceFunctionsInterface
+final class Benchmark implements BenchmarkInterface
 {
     /**
      * Constants.
@@ -160,6 +157,31 @@ final class Benchmark implements BenchmarkInterface, ServiceFunctionsInterface
         }
 
         return self::$instances[$instanceName];
+    }
+
+    // --------------------------------------------------------------------------
+
+    /**
+     * {@inheritdoc}
+     */
+    public static function init()
+    {
+        if (null === static::$instance) {
+            static::$instance = new static;
+            static::$objectCount++;
+        }
+
+        return static::$instance;
+    }
+
+    // --------------------------------------------------------------------------
+
+    /**
+     * {@inheritdoc}
+     */
+    public static function getInstanceCount()
+    {
+        return (int) static::$objectCount;
     }
 
     // --------------------------------------------------------------------------

@@ -112,7 +112,7 @@ final class Benchmark implements BenchmarkInterface
     private function getStats()
     {
         $dataBoard  = (true === $this->display) ?
-            (self::CRLF . '<pre id="bench">' . self::CRLF) : (self::CRLF.'    <!--');
+            (self::CRLF . '<pre id="bench">' . self::CRLF) : (self::CRLF . '    <!--');
 
         $dataBoard .=
 
@@ -122,7 +122,7 @@ final class Benchmark implements BenchmarkInterface
             '    Memory Usage: ' . $this->getMemoryUsage() . self::CRLF .
             '     Peak Memory: ' . $this->getPeakMemory(false, '%.3f%s') .
             ' (or '.$this->getPeakMemory(true).' bytes)'.self::CRLF .
-            '            Date: '. date(self::MYSQL_DATE_FORMAT). self::CRLF .
+            '            Date: ' . date(self::MYSQL_DATE_FORMAT) . self::CRLF .
             '    ===================================== ';
 
         $dataBoard .= (true === $this->display) ?

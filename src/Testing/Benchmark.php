@@ -121,12 +121,11 @@ final class Benchmark implements BenchmarkInterface
             '    Elapsed Time: ' . $this->getTime(true) . ' (micro)' . self::CRLF .
             '    Memory Usage: ' . $this->getMemoryUsage() . self::CRLF .
             '     Peak Memory: ' . $this->getPeakMemory(false, '%.3f%s') .
-            ' (or '.$this->getPeakMemory(true).' bytes)'.self::CRLF .
+            ' (or ' . $this->getPeakMemory(true) . ' bytes)' . self::CRLF .
             '            Date: ' . date(self::MYSQL_DATE_FORMAT) . self::CRLF .
             '    ===================================== ';
 
-        $dataBoard .= (true === $this->display) ?
-            (self::CRLF . '</pre>') : ('-->');
+        $dataBoard .= (true === $this->display) ? (self::CRLF . '</pre>') : ('-->');
 
         return $dataBoard;
     }

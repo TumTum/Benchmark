@@ -208,11 +208,10 @@ final class Benchmark implements BenchmarkInterface
      * Get peak memory usage.
      *
      * @use    Benchmark::getStats();
-     * @throws \InvalidArgumentException on non boolean value for $raw
      * @param  bool    $raw     A raw memory usage
      * @param  string  $format  A decimal format
      *
-     * @return string
+     * @return integer
      */
     private function getPeakMemory($raw = false, $format = null)
     {
@@ -227,11 +226,12 @@ final class Benchmark implements BenchmarkInterface
      * Get a general memory usage.
      *
      * @use    Benchmark::getStats();
-     * @throws \InvalidArgumentException on non boolean value for $raw
+     * @throws \Exception on non boolean value for $raw
+     *
      * @param  bool    $raw     A raw memory usage
      * @param  string  $format  A decimal format
      *
-     * @return string
+     * @return integer
      */
     private function getMemoryUsage($raw = false, $format = null)
     {
@@ -258,7 +258,7 @@ final class Benchmark implements BenchmarkInterface
      * @param  bool    $size    A raw memory size
      * @param  string  $format  A decimal format
      *
-     * @return string
+     * @return integer
      */
     private static function readableMemorySize($size = null, $format = null)
     {

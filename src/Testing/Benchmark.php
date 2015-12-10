@@ -258,7 +258,7 @@ final class Benchmark implements BenchmarkInterface
      * @param  bool    $size    A raw memory size
      * @param  string  $format  A decimal format
      *
-     * @return integer
+     * @return string
      */
     private static function readableMemorySize($size = null, $format = null)
     {

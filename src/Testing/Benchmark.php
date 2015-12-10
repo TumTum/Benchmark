@@ -255,7 +255,7 @@ final class Benchmark implements BenchmarkInterface
     /**
      * Create a readable memory size.
      *
-     * @param  bool    $size    A raw memory size
+     * @param  integer $size    A raw memory size
      * @param  string  $format  A decimal format
      *
      * @return string

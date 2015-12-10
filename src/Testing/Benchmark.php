@@ -313,32 +313,4 @@ final class Benchmark implements BenchmarkInterface
 
         return sprintf($format, $time, $unit);
     }
-
-    // --------------------------------------------------------------------------
-
-    /**
-     * Method implementations inserted.
-     *
-     * The notation below illustrates visibility: (+) @api, (-) protected or private.
-     *
-     * @method all();
-     * @method init();
-     * @method get($key);
-     * @method has($key);
-     * @method version();
-     * @method getClassName();
-     * @method getConst($key);
-     * @method set($key, $value);
-     * @method isString($str);
-     * @method getInstanceCount();
-     * @method getClassInterfaces();
-     * @method __call($callback, $parameters);
-     * @method getProperty($name, $key = null);
-     * @method doesFunctionExist($functionName);
-     * @method isStringKey($str, array $keys);
-     * @method throwExceptionError(array $error);
-     * @method setProperty($name, $value, $key = null);
-     * @method throwInvalidArgumentExceptionError(array $error);
-     */
-    use ServiceFunctions;
 }

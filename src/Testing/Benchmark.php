@@ -18,16 +18,16 @@ namespace UCSDMath\Testing;
  * Method list: (+) @api, (-) protected or private visibility.
  *
  * (+) BenchmarkInterface __construct();
- * (+) void               __destruct();
- * (+) start();
- * (+) getStats();
- * (+) stop($display = false);
- * (+) getNewInstance($instanceName);
- * (+) getTime($raw = false, $format = null);
- * (+) getPeakMemory($raw = false, $format = null);
- * (+) getMemoryUsage($raw = false, $format = null);
- * (+) readableMemorySize($size = null, $format = null);
- * (+) readableElapseTime($microtime = null, $format = null, $round = 3);
+ * (+) void __destruct();
+ * (-) string getStats();
+ * (+) BenchmarkInterface start();
+ * (+) string stop($display = false);
+ * (-) string getTime($raw = false, $format = null);
+ * (+) BenchmarkInterface getNewInstance($instanceName);
+ * (-) integer getMemoryUsage($raw = false, $format = null);
+ * (-) string readableMemorySize($size = null, $format = null);
+ * (-) integer|string getPeakMemory($raw = false, $format = null);
+ * (-) string readableElapseTime($microtime = null, $format = null, $round = 3);
  *
  * @author Daryl Eisner <deisner@ucsd.edu>
  */
@@ -199,7 +199,7 @@ final class Benchmark implements BenchmarkInterface
     {
         $elapsed = $this->stop - $this->start;
 
-        return $raw ? $elapsed : self::readableElapseTime($elapsed, $format);
+        return $raw ? (string) $elapsed : self::readableElapseTime($elapsed, $format);
     }
 
     // --------------------------------------------------------------------------

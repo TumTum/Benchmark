@@ -60,10 +60,9 @@ interface BenchmarkInterface
     /**
      * Stop the benchmark clock.
      *
-     * @throws \InvalidArgumentException on non boolean value for $display
-     * @param  bool  $display   A raw memory usage
+     * @param  bool  $display  A raw memory usage
      *
-     * @return bool|string  The display via print();
+     * @return string  A display via print();
      */
     public function stop($display = false);
 

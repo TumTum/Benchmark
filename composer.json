@@ -1,7 +1,7 @@
 {
     "name": "ucsdmath/testing",
     "description": "Some PHP testing",
-    "keywords": ["testing", "benchmark", "ucsdmath"],
+    "keywords": ["testing", "ucsdmath", "benchmark", "component"],
     "homepage": "https://github.com/ucsdmath",
     "type": "library",
     "license": "MIT",

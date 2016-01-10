@@ -1,13 +1,11 @@
 {
     "name": "ucsdmath/testing",
+    "type": "library",
     "description": "Some PHP testing",
     "keywords": ["testing", "ucsdmath", "benchmark", "component"],
     "homepage": "https://github.com/ucsdmath",
-    "type": "library",
     "license": "MIT",
     "time": "2015-12-05",
-    "minimum-stability": "dev",
-    "prefer-stable": true,
     "authors": [
         {"name": "Daryl Eisner", "email": "deisner@ucsd.edu"}
     ],
@@ -27,6 +25,8 @@
     },
     "suggest": {
     },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "extra": {
         "branch-alias": {
             "dev-master": "1.6.x-dev"

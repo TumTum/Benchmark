@@ -94,7 +94,7 @@ final class Benchmark implements BenchmarkInterface
     /**
      * {@inheritdoc}
      */
-    public function start()
+    public function start(): self
     {
         $this->start = microtime(true);
 

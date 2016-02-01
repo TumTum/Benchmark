@@ -94,7 +94,7 @@ final class Benchmark implements BenchmarkInterface
     /**
      * {@inheritdoc}
      */
-    public function start(): self
+    public function start(): BenchmarkInterface
     {
         $this->start = microtime(true);
 
@@ -110,7 +110,7 @@ final class Benchmark implements BenchmarkInterface
      *
      * @return string
      */
-    private function getStats()
+    private function getStats(): string
     {
         $dataBoard  = (true === $this->display) ?
             (self::CRLF . '<pre id="bench">' . self::CRLF) : (self::CRLF . '    <!--');
@@ -136,7 +136,7 @@ final class Benchmark implements BenchmarkInterface
     /**
      * {@inheritdoc}
      */
-    public function stop($display = false)
+    public function stop($display = false): string
     {
         $this->display = !empty($display) ? true : false;
         $this->stop = microtime(true);
@@ -150,7 +150,7 @@ final class Benchmark implements BenchmarkInterface
     /**
      * {@inheritdoc}
      */
-    public static function getNewInstance($instanceName)
+    public static function getNewInstance($instanceName): BenchmarkInterface
     {
         if (!array_key_exists($instanceName, self::$instances)) {
             self::$instances[$instanceName] = new self();
@@ -164,7 +164,7 @@ final class Benchmark implements BenchmarkInterface
     /**
      * {@inheritdoc}
      */
-    public static function init()
+    public static function init(): BenchmarkInterface
     {
         if (null === self::$instance) {
             self::$instance = new self();
@@ -179,7 +179,7 @@ final class Benchmark implements BenchmarkInterface
     /**
      * {@inheritdoc}
      */
-    public static function getInstanceCount()
+    public static function getInstanceCount(): int
     {
         return (int) self::$objectCount;
     }
@@ -196,7 +196,7 @@ final class Benchmark implements BenchmarkInterface
      *
      * @return string
      */
-    private function getTime($raw = false, $format = null)
+    private function getTime($raw = false, $format = null): string
     {
         $elapsed = $this->stop - $this->start;
 
@@ -232,7 +232,7 @@ final class Benchmark implements BenchmarkInterface
      * @param  bool    $raw     A raw memory usage
      * @param  string  $format  A decimal format
      *
-     * @return integer
+     * @return string|integer
      */
     private function getMemoryUsage($raw = false, $format = null)
     {
@@ -261,7 +261,7 @@ final class Benchmark implements BenchmarkInterface
      *
      * @return string
      */
-    private static function readableMemorySize($size = null, $format = null)
+    private static function readableMemorySize($size = null, $format = null): string
     {
         /* A decimal point rounding */
         $round = 3;
@@ -293,7 +293,7 @@ final class Benchmark implements BenchmarkInterface
      *
      * @return string
      */
-    private static function readableElapseTime($microtime = null, $format = null)
+    private static function readableElapseTime($microtime = null, $format = null): string
     {
         /* A decimal point rounding */
         $round = 3;

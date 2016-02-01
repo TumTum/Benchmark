@@ -45,7 +45,7 @@ interface BenchmarkInterface
      *
      * @return BenchmarkInterface
      */
-    public static function getNewInstance($instanceName);
+    public static function getNewInstance($instanceName): BenchmarkInterface;
 
     // --------------------------------------------------------------------------
 
@@ -54,7 +54,7 @@ interface BenchmarkInterface
      *
      * @return BenchmarkInterface
      */
-    public function start();
+    public function start(): BenchmarkInterface;
 
     // --------------------------------------------------------------------------
 
@@ -65,7 +65,7 @@ interface BenchmarkInterface
      *
      * @return string  A display via print();
      */
-    public function stop($display = false);
+    public function stop($display = false): string;
 
     // --------------------------------------------------------------------------
 
@@ -78,7 +78,7 @@ interface BenchmarkInterface
      *
      * @api
      */
-    public static function init();
+    public static function init(): BenchmarkInterface;
 
     // --------------------------------------------------------------------------
 
@@ -91,5 +91,5 @@ interface BenchmarkInterface
      *
      * @api
      */
-    public static function getInstanceCount();
+    public static function getInstanceCount(): int;
 }

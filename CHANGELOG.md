@@ -23,6 +23,7 @@ be documented in this file.
  - Initial Release of `UCSDMath\Storage`
  - Initial Release of `UCSDMath\Maillist`
  - Initial Release of `UCSDMath\Mail`
+ - Fixed minor changes to `UCSDMath\DepartmentSpecificFunctions` adding `Carbon\Carbon`
 
 ### 1.5.0 (2015-12-05)
 

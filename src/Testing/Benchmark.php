@@ -25,10 +25,10 @@ namespace UCSDMath\Testing;
  * (+) string stop($display = false);
  * (-) string getTime($raw = false, $format = null);
  * (+) BenchmarkInterface getNewInstance($instanceName);
- * (-) integer getMemoryUsage($raw = false, $format = null);
- * (-) string readableMemorySize($size = null, $format = null);
+ * (-) int     getMemoryUsage($raw = false, $format = null);
+ * (-) string readableMemorySize(int $size = null, $format = null);
  * (-) integer|string getPeakMemory($raw = false, $format = null);
- * (-) string readableElapseTime($microtime = null, $format = null, $round = 3);
+ * (-) float readableElapseTime($microtime = null, $format = null, $round = 3);
  *
  * @author Daryl Eisner <deisner@ucsd.edu>
  */
@@ -50,15 +50,15 @@ final class Benchmark implements BenchmarkInterface
      *
      * @var    float              $start        A start unix timestamp in microseconds
      * @var    float              $stop         A stop unix timestamp in microseconds
-     * @var    integer            $memoryUse    A memory allocated from system (in real size)
+     * @var    int                $memoryUse    A memory allocated from system (in real size)
      * @var    bool               $display      A page display, comments display [default false]
-     * @static BenchmarkInterface $instance     A BenchmarkInterface instance
+     * @static BenchmarkInterface $instance     A BenchmarkInterface
      * @static array              $instances    A Benchmark array
-     * @static integer            $objectCount  A BenchmarkInterface instance count
+     * @static int                $objectCount  A BenchmarkInterface count
      */
     private $start              = null;
     private $stop               = null;
-    private $memoryUse          = null;
+    private $memoryUse          = 0;
     private $display            = false;
     private static $instance    = null;
     private static $instances   = array();
@@ -128,29 +128,46 @@ final class Benchmark implements BenchmarkInterface
 
         $dataBoard .= (true === $this->display) ? (self::CRLF . '</pre>') : ('-->');
 
-        return $dataBoard;
+        return (string) $dataBoard;
     }
 
     // --------------------------------------------------------------------------
 
     /**
-     * {@inheritdoc}
+     * Stop the benchmark clock.
+     *
+     * @param bool  $display  A raw memory usage
+     *
+     * @return string  A display via print();
      */
-    public function stop($display = false): string
+    public function stop(bool $display = false): string
     {
         $this->display = !empty($display) ? true : false;
         $this->stop = microtime(true);
         $this->memoryUse = memory_get_usage(true);
 
-        return $this->getStats();
+        return (string) $this->getStats();
     }
 
     // --------------------------------------------------------------------------
 
     /**
-     * {@inheritdoc}
+     * Specify 1, 2, or 3 Benchmark objects and recall by name.
+     *
+     * Multiton pattern implementation.
+     * This is considered to be an anti-pattern. For better testability
+     * and maintainability use dependency injection.
+     *
+     * @purpose  To have only a list of named instances that are used,
+     *           like a singleton but with n instances.
+     *
+     * @static
+     *
+     * @param string $instanceName  A new object handle name.
+     *
+     * @return BenchmarkInterface
      */
-    public static function getNewInstance($instanceName): BenchmarkInterface
+    public static function getNewInstance(string $instanceName): BenchmarkInterface
     {
         if (!array_key_exists($instanceName, self::$instances)) {
             self::$instances[$instanceName] = new self();
@@ -162,7 +179,13 @@ final class Benchmark implements BenchmarkInterface
     // --------------------------------------------------------------------------
 
     /**
-     * {@inheritdoc}
+     * Initialization (Singleton Pattern).
+     *
+     * @static
+     *
+     * @return BenchmarkInterface
+     *
+     * @api
      */
     public static function init(): BenchmarkInterface
     {
@@ -177,7 +200,13 @@ final class Benchmark implements BenchmarkInterface
     // --------------------------------------------------------------------------
 
     /**
-     * {@inheritdoc}
+     * Returns instance count.
+     *
+     * @static
+     *
+     * @return int
+     *
+     * @api
      */
     public static function getInstanceCount(): int
     {
@@ -191,8 +220,8 @@ final class Benchmark implements BenchmarkInterface
      *
      * @use    Benchmark::getStats();
      * @throws \InvalidArgumentException on non boolean value for $raw
-     * @param  bool    $raw     A raw memory usage
-     * @param  string  $format  A decimal format
+     * @param bool    $raw     A raw memory usage
+     * @param string  $format  A decimal format
      *
      * @return string
      */
@@ -200,7 +229,7 @@ final class Benchmark implements BenchmarkInterface
     {
         $elapsed = $this->stop - $this->start;
 
-        return $raw ? (string) $elapsed : self::readableElapseTime($elapsed, $format);
+        return $raw ? (string) $elapsed : (string) self::readableElapseTime($elapsed, $format);
     }
 
     // --------------------------------------------------------------------------
@@ -209,16 +238,17 @@ final class Benchmark implements BenchmarkInterface
      * Get peak memory usage.
      *
      * @use    Benchmark::getStats();
-     * @param  bool    $raw     A raw memory usage
-     * @param  string  $format  A decimal format
      *
-     * @return integer|string
+     * @param bool    $raw     A raw memory usage
+     * @param string  $format  A decimal format
+     *
+     * @return string
      */
-    private function getPeakMemory($raw = false, $format = null)
+    private function getPeakMemory(bool $raw = false, string $format = null): string
     {
         $memory = memory_get_peak_usage(true);
 
-        return $raw ? $memory : self::readableMemorySize($memory, $format);
+        return $raw ? (string) $memory : (string) self::readableMemorySize($memory, $format);
     }
 
     // --------------------------------------------------------------------------
@@ -229,15 +259,15 @@ final class Benchmark implements BenchmarkInterface
      * @use    Benchmark::getStats();
      * @throws \Exception on non boolean value for $raw
      *
-     * @param  bool    $raw     A raw memory usage
-     * @param  string  $format  A decimal format
+     * @param bool    $raw     A raw memory usage
+     * @param string  $format  A decimal format
      *
-     * @return string|integer
+     * @return string
      */
-    private function getMemoryUsage($raw = false, $format = null)
+    private function getMemoryUsage(bool $raw = false, string $format = null): string
     {
         /**
-         * Check Arguments
+         * Check Arguments.
          */
         if (!is_bool($raw)) {
             throw new \Exception(sprintf(
@@ -248,7 +278,7 @@ final class Benchmark implements BenchmarkInterface
             ));
         }
 
-        return $raw ? $this->memoryUse : self::readableMemorySize($this->memoryUse, $format);
+        return $raw ? (string) $this->memoryUse : (string) self::readableMemorySize($this->memoryUse, $format);
     }
 
     // --------------------------------------------------------------------------
@@ -256,12 +286,12 @@ final class Benchmark implements BenchmarkInterface
     /**
      * Create a readable memory size.
      *
-     * @param  integer $size    A raw memory size
-     * @param  string  $format  A decimal format
+     * @param int    $size    A raw memory size
+     * @param string $format  A decimal format
      *
      * @return string
      */
-    private static function readableMemorySize($size = null, $format = null): string
+    private static function readableMemorySize(int $size = null, string $format = null): string
     {
         /* A decimal point rounding */
         $round = 3;
@@ -280,7 +310,7 @@ final class Benchmark implements BenchmarkInterface
             $format = preg_replace('/(%.[\d]+f)/', '%d', $format);
         }
 
-        return sprintf($format, round($size, $round), $units[$i]);
+        return (string) sprintf($format, round($size, $round), $units[$i]);
     }
 
     // --------------------------------------------------------------------------
@@ -288,19 +318,17 @@ final class Benchmark implements BenchmarkInterface
     /**
      * Create a readable elapse time.
      *
-     * @param  integer $microtime  A unix timestamp in microseconds
-     * @param  string  $format     A decimal format
+     * @param float  $microtime  A unix timestamp in microseconds
+     * @param string $format     A decimal format
      *
      * @return string
      */
-    private static function readableElapseTime($microtime = null, $format = null): string
+    private static function readableElapseTime(float $microtime = null, string $format = null): string
     {
         /* A decimal point rounding */
         $round = 3;
 
-        $format = is_null($format)
-            ? '%.3f%s'
-            : $format;
+        $format = is_null($format) ? '%.3f%s' : $format;
 
         if ($microtime >= 1) {
             $unit = 's';
@@ -312,6 +340,6 @@ final class Benchmark implements BenchmarkInterface
             $format = preg_replace('/(%.[\d]+f)/', '%d', $format);
         }
 
-        return sprintf($format, $time, $unit);
+        return (string) sprintf($format, $time, $unit);
     }
 }

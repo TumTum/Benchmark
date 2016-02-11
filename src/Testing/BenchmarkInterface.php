@@ -41,11 +41,12 @@ interface BenchmarkInterface
      *           like a singleton but with n instances.
      *
      * @static
-     * @param  string $instanceName  A new object handle name.
+     *
+     * @param string $instanceName  A new object handle name.
      *
      * @return BenchmarkInterface
      */
-    public static function getNewInstance($instanceName): BenchmarkInterface;
+    public static function getNewInstance(string $instanceName): BenchmarkInterface;
 
     // --------------------------------------------------------------------------
 
@@ -61,11 +62,11 @@ interface BenchmarkInterface
     /**
      * Stop the benchmark clock.
      *
-     * @param  bool  $display  A raw memory usage
+     * @param bool  $display  A raw memory usage
      *
      * @return string  A display via print();
      */
-    public function stop($display = false): string;
+    public function stop(bool $display = false): string;
 
     // --------------------------------------------------------------------------
 
@@ -87,7 +88,7 @@ interface BenchmarkInterface
      *
      * @static
      *
-     * @return integer
+     * @return int
      *
      * @api
      */

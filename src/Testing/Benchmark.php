@@ -342,4 +342,6 @@ final class Benchmark implements BenchmarkInterface
 
         return (string) sprintf($format, $time, $unit);
     }
+
+    // --------------------------------------------------------------------------
 }

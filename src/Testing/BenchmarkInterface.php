@@ -93,4 +93,6 @@ interface BenchmarkInterface
      * @api
      */
     public static function getInstanceCount(): int;
+
+    // --------------------------------------------------------------------------
 }

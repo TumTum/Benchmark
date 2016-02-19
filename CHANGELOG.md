@@ -4,13 +4,12 @@
 All notable changes to `UCSDMath\Testing` (bug and security fixes) will
 be documented in this file.
 
-### 1.6.0 (2016-01-25)
+### 1.6.0 (2016-02-19)
 
- - Now converted to `PHPv7` Strict Type
- - Update UCSD Decorator 4  to `v4.5.2`
+ - Now converted to `PHP 7` Strict Type; use return types, scalar hints, and random_bytes();
  - Update jQuery to `v2.2.0`
  - Update Moment to `v2.11.1`
- - Update Tiny MCE to `v4.3.2`
+ - Update Tiny MCE to `v4.3.4`
  - Added Modernizr `v3.2.0`
  - Update HTML5 Boilerplate to `v5.3.0` (for minor changes to UCSD Decorator 4)
  - Initial Release of `UCSDMath\Mail`

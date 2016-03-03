@@ -18,6 +18,10 @@
 
 Testing is a testing and development library only. This is not to be used in a production.
 
+Copy this software from:
+- [Packagist.org](https://packagist.org/packages/ucsdmath/Testing)
+- [Github.com](https://github.com/ucsdmath/Testing)
+
 ## Installation using [Composer](http://getcomposer.org/)
 You can install the class ```Testing``` with Composer and Packagist by
 adding the ucsdmath/testing package to your composer.json file:

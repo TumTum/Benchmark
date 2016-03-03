@@ -8,13 +8,13 @@
   </tr>
 </table>
 ---
+[![Build Status](https://scrutinizer-ci.com/g/ucsdmath/Testing/badges/build.png?b=master)](https://scrutinizer-ci.com/g/ucsdmath/Testing/build-status/master)
 [![Latest Stable Version](https://poser.pugx.org/ucsdmath/Testing/v/stable)](https://packagist.org/packages/ucsdmath/Testing)
+[![Minimum PHP Version](https://img.shields.io/badge/php-%3E%3D%207.0-8892BF.svg?style=flat)](https://php.net/)
 [![License](https://poser.pugx.org/ucsdmath/Testing/license)](https://packagist.org/packages/ucsdmath/Testing)
 [![Total Downloads](https://poser.pugx.org/ucsdmath/Testing/downloads)](https://packagist.org/packages/ucsdmath/Testing)
 [![Latest Unstable Version](https://poser.pugx.org/ucsdmath/Testing/v/unstable)](https://packagist.org/packages/ucsdmath/Testing)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/ucsdmath/Testing/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/ucsdmath/Testing/?branch=master)
-[![Quality Score](https://img.shields.io/scrutinizer/g/ucsdmath/Testing.svg)](https://scrutinizer-ci.com/g/ucsdmath/Testing/?branch=master)
-[![Build Status](https://scrutinizer-ci.com/g/ucsdmath/Testing/badges/build.png?b=master)](https://scrutinizer-ci.com/g/ucsdmath/Testing/build-status/master)
 
 Testing is a testing and development library only. This is not to be used in a production.
 

@@ -27,11 +27,9 @@
     },
     "suggest": {
     },
-    "minimum-stability": "dev",
-    "prefer-stable": true,
     "extra": {
         "branch-alias": {
-            "dev-master": "1.7.x-dev"
+            "dev-master": "1.7-dev"
         }
     }
 }

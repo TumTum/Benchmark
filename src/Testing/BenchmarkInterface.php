@@ -29,7 +29,7 @@ interface BenchmarkInterface
     const CRLF              = "\r\n";
     const MYSQL_DATE_FORMAT = 'Y-m-d H:i:s';
 
-    // --------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 
     /**
      * Specify 1, 2, or 3 Benchmark objects and recall by name.
@@ -45,20 +45,20 @@ interface BenchmarkInterface
      *
      * @param string $instanceName  A new object handle name.
      *
-     * @return BenchmarkInterface
+     * @return BenchmarkInterface The current instance
      */
     public static function getNewInstance(string $instanceName): BenchmarkInterface;
 
-    // --------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 
     /**
      * Start the benchmark clock.
      *
-     * @return BenchmarkInterface
+     * @return BenchmarkInterface The current instance
      */
     public function start(): BenchmarkInterface;
 
-    // --------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 
     /**
      * Stop the benchmark clock.
@@ -69,20 +69,20 @@ interface BenchmarkInterface
      */
     public function stop(bool $display = false): string;
 
-    // --------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 
     /**
      * Initialization (Singleton Pattern).
      *
      * @static
      *
-     * @return BenchmarkInterface
+     * @return BenchmarkInterface The current instance
      *
      * @api
      */
     public static function init(): BenchmarkInterface;
 
-    // --------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 
     /**
      * Returns instance count.
@@ -95,5 +95,5 @@ interface BenchmarkInterface
      */
     public static function getInstanceCount(): int;
 
-    // --------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 }

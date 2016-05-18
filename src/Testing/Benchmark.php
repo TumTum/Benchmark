@@ -44,7 +44,7 @@ final class Benchmark implements BenchmarkInterface
      */
     const VERSION = '1.7.0';
 
-    // --------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 
     /**
      * Properties.
@@ -65,7 +65,7 @@ final class Benchmark implements BenchmarkInterface
     private static $instances   = array();
     private static $objectCount = 0;
 
-    // --------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 
     /**
      * Constructor.
@@ -78,7 +78,7 @@ final class Benchmark implements BenchmarkInterface
         self::$objectCount++;
     }
 
-    // --------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 
     /**
      * Destructor.
@@ -90,7 +90,7 @@ final class Benchmark implements BenchmarkInterface
         self::$objectCount--;
     }
 
-    // --------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 
     /**
      * {@inheritdoc}
@@ -102,7 +102,7 @@ final class Benchmark implements BenchmarkInterface
         return $this;
     }
 
-    // --------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 
     /**
      * Get statistical data.
@@ -132,7 +132,7 @@ final class Benchmark implements BenchmarkInterface
         return (string) $dataBoard;
     }
 
-    // --------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 
     /**
      * Stop the benchmark clock.
@@ -150,7 +150,7 @@ final class Benchmark implements BenchmarkInterface
         return (string) $this->getStats();
     }
 
-    // --------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 
     /**
      * Specify 1, 2, or 3 Benchmark objects and recall by name.
@@ -166,7 +166,7 @@ final class Benchmark implements BenchmarkInterface
      *
      * @param string $instanceName  A new object handle name.
      *
-     * @return BenchmarkInterface
+     * @return BenchmarkInterface The current instance
      */
     public static function getNewInstance(string $instanceName): BenchmarkInterface
     {
@@ -177,14 +177,14 @@ final class Benchmark implements BenchmarkInterface
         return self::$instances[$instanceName];
     }
 
-    // --------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 
     /**
      * Initialization (Singleton Pattern).
      *
      * @static
      *
-     * @return BenchmarkInterface
+     * @return BenchmarkInterface The current instance
      *
      * @api
      */
@@ -198,7 +198,7 @@ final class Benchmark implements BenchmarkInterface
         return self::$instance;
     }
 
-    // --------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 
     /**
      * Returns instance count.
@@ -214,7 +214,7 @@ final class Benchmark implements BenchmarkInterface
         return (int) self::$objectCount;
     }
 
-    // --------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 
     /**
      * Get elapse time.
@@ -233,7 +233,7 @@ final class Benchmark implements BenchmarkInterface
         return $raw ? (string) $elapsed : (string) self::readableElapseTime($elapsed, $format);
     }
 
-    // --------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 
     /**
      * Get peak memory usage.
@@ -252,7 +252,7 @@ final class Benchmark implements BenchmarkInterface
         return $raw ? (string) $memory : (string) self::readableMemorySize($memory, $format);
     }
 
-    // --------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 
     /**
      * Get a general memory usage.
@@ -282,7 +282,7 @@ final class Benchmark implements BenchmarkInterface
         return $raw ? (string) $this->memoryUse : (string) self::readableMemorySize($this->memoryUse, $format);
     }
 
-    // --------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 
     /**
      * Create a readable memory size.
@@ -314,7 +314,7 @@ final class Benchmark implements BenchmarkInterface
         return (string) sprintf($format, round($size, $round), $units[$i]);
     }
 
-    // --------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 
     /**
      * Create a readable elapse time.
@@ -344,5 +344,5 @@ final class Benchmark implements BenchmarkInterface
         return (string) sprintf($format, $time, $unit);
     }
 
-    // --------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 }

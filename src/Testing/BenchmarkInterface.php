@@ -14,9 +14,13 @@ declare(strict_types=1);
 namespace UCSDMath\Testing;
 
 /**
- * BenchmarkInterface is the interface implemented by Benchmark.
+ * BenchmarkInterface is the interface implemented by all Benchmark classes.
+ *
+ * Method noted as: (+) @api.
  *
  * @author Daryl Eisner <deisner@ucsd.edu>
+ *
+ * @api
  */
 interface BenchmarkInterface
 {

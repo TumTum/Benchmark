@@ -14,8 +14,11 @@ declare(strict_types=1);
 namespace UCSDMath\Testing;
 
 /**
- * Benchmark provides an abstract base class implementation of {@link BenchmarkInterface}.
- * Primarily, this services the fundamental implementations for testing PHP.
+ * Benchmark is the default implementation of {@link BenchmarkInterface} which
+ * provides routine Testing methods that are commonly used in the framework.
+ *
+ * {@link Benchmark} is basically a script performance tester and is considered a
+ * base or final class.
  *
  * Method list: (+) @api, (-) protected or private visibility.
  *
@@ -26,12 +29,14 @@ namespace UCSDMath\Testing;
  * (+) string stop($display = false);
  * (-) string getTime($raw = false, $format = null);
  * (+) BenchmarkInterface getNewInstance($instanceName);
- * (-) int     getMemoryUsage($raw = false, $format = null);
+ * (-) int getMemoryUsage($raw = false, $format = null);
  * (-) string readableMemorySize(int $size = null, $format = null);
  * (-) integer|string getPeakMemory($raw = false, $format = null);
  * (-) float readableElapseTime($microtime = null, $format = null, $round = 3);
  *
  * @author Daryl Eisner <deisner@ucsd.edu>
+ *
+ * @api
  */
 final class Benchmark implements BenchmarkInterface
 {

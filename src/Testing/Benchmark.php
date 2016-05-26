@@ -67,7 +67,7 @@ final class Benchmark implements BenchmarkInterface
     private $memoryUse          = 0;
     private $display            = false;
     private static $instance    = null;
-    private static $instances   = array();
+    private static $instances   = [];
     private static $objectCount = 0;
 
     //--------------------------------------------------------------------------

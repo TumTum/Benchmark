@@ -54,13 +54,13 @@ final class Benchmark implements BenchmarkInterface
     /**
      * Properties.
      *
-     * @var    float              $start        A start unix timestamp in microseconds
-     * @var    float              $stop         A stop unix timestamp in microseconds
-     * @var    int                $memoryUse    A memory allocated from system (in real size)
-     * @var    bool               $display      A page display, comments display [default false]
-     * @static BenchmarkInterface $instance     A BenchmarkInterface
-     * @static array              $instances    A Benchmark array
-     * @static int                $objectCount  A BenchmarkInterface count
+     * @var    float              $start       A start unix timestamp in microseconds
+     * @var    float              $stop        A stop unix timestamp in microseconds
+     * @var    int                $memoryUse   A memory allocated from system (in real size)
+     * @var    bool               $display     A page display, comments display [default false]
+     * @static BenchmarkInterface $instance    A static instance BenchmarkInterface
+     * @static array              $instances   A Benchmark array
+     * @static int                $objectCount A static count of BenchmarkInterface
      */
     private $start              = null;
     private $stop               = null;
@@ -142,9 +142,9 @@ final class Benchmark implements BenchmarkInterface
     /**
      * Stop the benchmark clock.
      *
-     * @param bool  $display  A raw memory usage
+     * @param bool $display A raw memory usage
      *
-     * @return string  A display via print();
+     * @return string A display via print();
      */
     public function stop(bool $display = false): string
     {
@@ -169,7 +169,7 @@ final class Benchmark implements BenchmarkInterface
      *
      * @static
      *
-     * @param string $instanceName  A new object handle name.
+     * @param string $instanceName A new object handle name.
      *
      * @return BenchmarkInterface The current instance
      */

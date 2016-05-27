@@ -16,7 +16,7 @@ namespace UCSDMath\Testing;
 /**
  * BenchmarkInterface is the interface implemented by all Benchmark classes.
  *
- * Method noted as: (+) @api.
+ * Method list: (+) @api.
  *
  * @author Daryl Eisner <deisner@ucsd.edu>
  *

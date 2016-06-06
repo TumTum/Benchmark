@@ -27,11 +27,12 @@ interface BenchmarkInterface
     /**
      * Constants.
      *
-     * @var string CRLF              The carriage return line feed
      * @var string MYSQL_DATE_FORMAT The MySQL date format
+     * @var string CRLF              The carriage return line feed
      */
-    const CRLF              = "\r\n";
     const MYSQL_DATE_FORMAT = 'Y-m-d H:i:s';
+    const CRLF              = "\r\n";
+
 
     //--------------------------------------------------------------------------
 

@@ -27,8 +27,8 @@ interface BenchmarkInterface
     /**
      * Constants.
      *
-     * @var string CRLF               A carriage return line feed
-     * @var string MYSQL_DATE_FORMAT  A MySQL date format
+     * @var string CRLF              The carriage return line feed
+     * @var string MYSQL_DATE_FORMAT The MySQL date format
      */
     const CRLF              = "\r\n";
     const MYSQL_DATE_FORMAT = 'Y-m-d H:i:s';
@@ -47,7 +47,7 @@ interface BenchmarkInterface
      *
      * @static
      *
-     * @param string $instanceName  A new object handle name.
+     * @param string $instanceName The new object handle name.
      *
      * @return BenchmarkInterface The current instance
      */
@@ -67,9 +67,9 @@ interface BenchmarkInterface
     /**
      * Stop the benchmark clock.
      *
-     * @param bool  $display  A raw memory usage
+     * @param bool $display The raw memory usage
      *
-     * @return string  A display via print();
+     * @return string The display via print();
      */
     public function stop(bool $display = false): string;
 

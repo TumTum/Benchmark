@@ -43,7 +43,7 @@ final class Benchmark implements BenchmarkInterface
     /**
      * Constants.
      *
-     * @var string VERSION A version number
+     * @var string VERSION The version number
      *
      * @api
      */
@@ -54,13 +54,13 @@ final class Benchmark implements BenchmarkInterface
     /**
      * Properties.
      *
-     * @var    float              $start       A start unix timestamp in microseconds
-     * @var    float              $stop        A stop unix timestamp in microseconds
-     * @var    int                $memoryUse   A memory allocated from system (in real size)
-     * @var    bool               $display     A page display, comments display [default false]
-     * @static BenchmarkInterface $instance    A static instance BenchmarkInterface
-     * @static array              $instances   A Benchmark array
-     * @static int                $objectCount A static count of BenchmarkInterface
+     * @var    float              $start       The start unix timestamp in microseconds
+     * @var    float              $stop        The stop unix timestamp in microseconds
+     * @var    int                $memoryUse   The memory allocated from system (in real size)
+     * @var    bool               $display     The page display, comments display [default false]
+     * @static BenchmarkInterface $instance    The static instance BenchmarkInterface
+     * @static array              $instances   The Benchmark array
+     * @static int                $objectCount The static count of BenchmarkInterface
      */
     private $start              = null;
     private $stop               = null;
@@ -142,9 +142,9 @@ final class Benchmark implements BenchmarkInterface
     /**
      * Stop the benchmark clock.
      *
-     * @param bool $display A raw memory usage
+     * @param bool $display The raw memory usage
      *
-     * @return string A display via print();
+     * @return string The display via print();
      */
     public function stop(bool $display = false): string
     {
@@ -169,7 +169,7 @@ final class Benchmark implements BenchmarkInterface
      *
      * @static
      *
-     * @param string $instanceName A new object handle name.
+     * @param string $instanceName The new object handle name.
      *
      * @return BenchmarkInterface The current instance
      */
@@ -226,8 +226,8 @@ final class Benchmark implements BenchmarkInterface
      *
      * @use    Benchmark::getStats();
      * @throws \InvalidArgumentException on non boolean value for $raw
-     * @param bool    $raw     A raw memory usage
-     * @param string  $format  A decimal format
+     * @param bool   $raw    The raw memory usage
+     * @param string $format The decimal format
      *
      * @return string
      */
@@ -245,8 +245,8 @@ final class Benchmark implements BenchmarkInterface
      *
      * @use    Benchmark::getStats();
      *
-     * @param bool    $raw     A raw memory usage
-     * @param string  $format  A decimal format
+     * @param bool   $raw    The raw memory usage
+     * @param string $format The decimal format
      *
      * @return string
      */
@@ -265,8 +265,8 @@ final class Benchmark implements BenchmarkInterface
      * @use    Benchmark::getStats();
      * @throws \Exception on non boolean value for $raw
      *
-     * @param bool    $raw     A raw memory usage
-     * @param string  $format  A decimal format
+     * @param bool   $raw    The raw memory usage
+     * @param string $format The decimal format
      *
      * @return string
      */
@@ -292,8 +292,8 @@ final class Benchmark implements BenchmarkInterface
     /**
      * Create a readable memory size.
      *
-     * @param int    $size    A raw memory size
-     * @param string $format  A decimal format
+     * @param int    $size   The raw memory size
+     * @param string $format The decimal format
      *
      * @return string
      */
@@ -324,8 +324,8 @@ final class Benchmark implements BenchmarkInterface
     /**
      * Create a readable elapse time.
      *
-     * @param float  $microtime  A unix timestamp in microseconds
-     * @param string $format     A decimal format
+     * @param float  $microtime The unix timestamp in microseconds
+     * @param string $format    The decimal format
      *
      * @return string
      */

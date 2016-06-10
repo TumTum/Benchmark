@@ -33,7 +33,6 @@ interface BenchmarkInterface
     const MYSQL_DATE_FORMAT = 'Y-m-d H:i:s';
     const CRLF              = "\r\n";
 
-
     //--------------------------------------------------------------------------
 
     /**

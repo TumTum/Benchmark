@@ -120,7 +120,6 @@ final class Benchmark implements BenchmarkInterface
     {
         $dataBoard  = (true === $this->display) ?
             (self::CRLF . '<pre id="bench">' . self::CRLF) : (self::CRLF . '    <!--');
-
         $dataBoard .=
 
             ' ======== [ BENCHMARK DATA ] ======== ' . self::CRLF .
@@ -131,7 +130,6 @@ final class Benchmark implements BenchmarkInterface
             ' (or ' . $this->getPeakMemory(true) . ' bytes)' . self::CRLF .
             '            Date: ' . date(self::MYSQL_DATE_FORMAT) . self::CRLF .
             '    ===================================== ';
-
         $dataBoard .= (true === $this->display) ? (self::CRLF . '</pre>') : ('-->');
 
         return (string) $dataBoard;
@@ -303,15 +301,12 @@ final class Benchmark implements BenchmarkInterface
         $round = 3;
         $mod = 1024;
         $units = explode(':', 'B:Kb:Mb:Gb:Tb');
-
         $format = is_null($format)
             ? '%.3f%s'
             : $format;
-
         for ($i = 0; $size > $mod; $i++) {
             $size /= $mod;
         }
-
         if (0 === $i) {
             $format = preg_replace('/(%.[\d]+f)/', '%d', $format);
         }
@@ -333,13 +328,10 @@ final class Benchmark implements BenchmarkInterface
     {
         /* A decimal point rounding */
         $round = 3;
-
         $format = is_null($format) ? '%.3f%s' : $format;
-
         if ($microtime >= 1) {
             $unit = 's';
             $time = round($microtime, $round);
-
         } else {
             $unit = 'ms';
             $time = round($microtime * 1000);

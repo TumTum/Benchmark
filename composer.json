@@ -1,11 +1,11 @@
 {
     "name": "ucsdmath/testing",
     "type": "library",
-    "description": "Some PHP testing",
+    "description": "Some PHP testing routines.",
     "keywords": ["testing", "ucsdmath", "benchmark", "component"],
     "homepage": "https://github.com/ucsdmath",
     "license": "MIT",
-    "time": "2016-07-03",
+    "time": "2016-07-31",
     "authors": [
         {
             "name": "Daryl Eisner",

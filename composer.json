@@ -16,7 +16,7 @@
         "php": ">=7.0.0"
     },
     "require-dev": {
-        "ucsdmath/date": "1.8.x-dev",
+        "ucsdmath/date": "1.8.0",
         "phpunit/phpunit": "5.4.8",
         "squizlabs/php_codesniffer": "2.6.2"
     },

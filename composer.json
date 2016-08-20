@@ -5,7 +5,7 @@
     "keywords": ["testing", "ucsdmath", "benchmark", "component"],
     "homepage": "https://github.com/ucsdmath",
     "license": "MIT",
-    "time": "2016-07-31",
+    "time": "2016-08-21",
     "authors": [
         {
             "name": "Daryl Eisner",
@@ -16,9 +16,10 @@
         "php": ">=7.0.0"
     },
     "require-dev": {
-        "ucsdmath/date": "1.9.x-dev",
+        "mockery/mockery": "0.9.5",
         "phpunit/phpunit": "5.5.2",
         "fzaninotto/faker": "1.6.0",
+        "ucsdmath/date": "1.9.x-dev",
         "squizlabs/php_codesniffer": "2.6.2"
     },
     "autoload": {

@@ -9,7 +9,12 @@
         <a href="https://travis-ci.org/ucsdmath/Testing">
         <img src="https://travis-ci.org/ucsdmath/Testing.svg?branch=master" style="float: left; margin: 0px 0px 10px 10px;"></a><br>
         <a href="https://www.codacy.com/app/ucsdmath-project/Testing">
-        <img src="https://api.codacy.com/project/badge/Grade/1149afda99134498854d4487151d53a7"></a></td>
+        <img src="https://api.codacy.com/project/badge/Grade/1149afda99134498854d4487151d53a7"></a>
+
+        <a href="https://scrutinizer-ci.com/g/ucsdmath/Testing/?branch=master">
+        <img src="https://img.shields.io/scrutinizer/g/ucsdmath/Testing.svg"></a>
+
+    </td>
     <td width="250" align="center">
         <a href="https://insight.sensiolabs.com/projects/41bed1eb-93fe-4566-aaae-0f96bf5d3dc5">
         <img src="https://insight.sensiolabs.com/projects/41bed1eb-93fe-4566-aaae-0f96bf5d3dc5/big.png" style="float: right; margin: 0px 0px 10px 10px;" width="212" height="51"></a></td>

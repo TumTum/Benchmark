@@ -31,7 +31,7 @@
         <a href="https://travis-ci.org/ucsdmath/Testing">
         <img src="http://php7ready.timesplinter.ch/ucsdmath/Testing/badge.svg"></a><br>
         <a href="https://codeship.com/">
-        <img src="https://app.codeship.com/projects/5b510ee0-988f-0134-db30-2613a2e72cf0/status?branch=master"></a>
+        <img src="https://app.codeship.com/projects/f4a7b150-98a6-0134-cc66-422e888d6aa3/status?branch=master"></a>
 </td></tr></table></td></tr></table>
 <table width="890"><tr>
     <td width="116" align="center"><b>Scrutinizer</b></td>

@@ -19,7 +19,7 @@
         "mockery/mockery": "0.9.6",
         "phpunit/phpunit": "5.7.1",
         "fzaninotto/faker": "1.6.0",
-        "ucsdmath/date": "1.11.x-dev",
+        "ucsdmath/date": "1.11.0",
         "squizlabs/php_codesniffer": "2.7.1"
     },
     "autoload": {

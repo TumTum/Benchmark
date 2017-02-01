@@ -8,3 +8,4 @@ packages.json
 src/dev/
 dist/
 ucsdmath-build-x.yml
+build/

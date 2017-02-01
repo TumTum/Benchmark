@@ -120,21 +120,23 @@ final class Benchmark implements BenchmarkInterface
      */
     private function getStats(): string
     {
-        $dataBoard  = (true === $this->display) ?
-            (self::CRLF . '<pre id="bench">' . self::CRLF) : (self::CRLF . '    <!--');
-        $dataBoard .=
+        $displaymode_start = self::CRLF . '    <!--';
+        $displaymode_end   = '-->';
+        if (true === $this->display) {
+            $displaymode_start = self::CRLF . '<pre id="bench">' . self::CRLF;
+            $displaymode_end   = self::CRLF . '</pre>';
+        }
 
-            ' ======== [ BENCHMARK DATA ] ======== ' . self::CRLF .
-            '    Elapsed Time: ' . $this->getTime() . self::CRLF .
-            '    Elapsed Time: ' . $this->getTime(true) . ' (micro)' . self::CRLF .
-            '    Memory Usage: ' . $this->getMemoryUsage() . self::CRLF .
-            '     Peak Memory: ' . $this->getPeakMemory(false, '%.3f%s') .
-            ' (or ' . $this->getPeakMemory(true) . ' bytes)' . self::CRLF .
-            '            Date: ' . date(self::MYSQL_DATE_FORMAT) . self::CRLF .
-            '    ===================================== ';
-        $dataBoard .= (true === $this->display) ? (self::CRLF . '</pre>') : ('-->');
+        $dataBoard[0] = $displaymode_start . ' ======== [ BENCHMARK DATA ] ======== ';
+        $dataBoard[2] = '    Elapsed Time: ' . $this->getTime();
+        $dataBoard[3] = '    Elapsed Time: ' . $this->getTime(true) . ' (micro)';
+        $dataBoard[4] = '    Memory Usage: ' . $this->getMemoryUsage();
+        $dataBoard[5] = '     Peak Memory: ' . $this->getPeakMemory(false) .
+                        ' (or ' . $this->getPeakMemory(true) . ' bytes)';
+        $dataBoard[7] = '            Date: ' . date(self::MYSQL_DATE_FORMAT);
+        $dataBoard[8] = '    ===================================== ' . $displaymode_end;
 
-        return (string) $dataBoard;
+        return (string) implode(self::CRLF, $dataBoard);
     }
 
     //--------------------------------------------------------------------------

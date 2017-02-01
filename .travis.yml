@@ -26,3 +26,4 @@ before_script:
 
 script:
   - ./vendor/bin/phpcs --standard=tests/resource/psr2-standard.xml ./src/
+  - ./vendor/bin/phpunit

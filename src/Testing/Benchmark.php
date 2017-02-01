@@ -128,6 +128,7 @@ final class Benchmark implements BenchmarkInterface
         }
 
         $dataBoard[0] = $displaymode_start . ' ======== [ BENCHMARK DATA ] ======== ';
+        $dataBoard[1] = '        Instance: ' . $this->getInstanceName();
         $dataBoard[2] = '    Elapsed Time: ' . $this->getTime();
         $dataBoard[3] = '    Elapsed Time: ' . $this->getTime(true) . ' (micro)';
         $dataBoard[4] = '    Memory Usage: ' . $this->getMemoryUsage();
@@ -135,6 +136,10 @@ final class Benchmark implements BenchmarkInterface
                         ' (or ' . $this->getPeakMemory(true) . ' bytes)';
         $dataBoard[7] = '            Date: ' . date(self::MYSQL_DATE_FORMAT);
         $dataBoard[8] = '    ===================================== ' . $displaymode_end;
+
+        if (empty($this->getInstanceName())) {
+            unset($dataBoard[1]);
+        }
 
         return (string) implode(self::CRLF, $dataBoard);
     }

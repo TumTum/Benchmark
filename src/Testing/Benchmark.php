@@ -54,18 +54,20 @@ final class Benchmark implements BenchmarkInterface
     /**
      * Properties.
      *
-     * @var    float              $start       The start unix timestamp in microseconds
-     * @var    float              $stop        The stop unix timestamp in microseconds
-     * @var    int                $memoryUse   The memory allocated from system (in real size)
-     * @var    bool               $display     The page display, comments display [default false]
-     * @static BenchmarkInterface $instance    The static instance BenchmarkInterface
-     * @static array              $instances   The Benchmark array
-     * @static int                $objectCount The static count of BenchmarkInterface
+     * @var    float              $start        The start unix timestamp in microseconds
+     * @var    float              $stop         The stop unix timestamp in microseconds
+     * @var    int                $memoryUse    The memory allocated from system (in real size)
+     * @var    bool               $display      The page display, comments display [default false]
+     * @var    string             $instanceName The Instance Name
+     * @static BenchmarkInterface $instance     The static instance BenchmarkInterface
+     * @static array              $instances    The Benchmark array
+     * @static int                $objectCount  The static count of BenchmarkInterface
      */
     private $start              = null;
     private $stop               = null;
     private $memoryUse          = 0;
     private $display            = false;
+    private $instanceName       = "";
     private static $instance    = null;
     private static $instances   = [];
     private static $objectCount = 0;
@@ -174,7 +176,9 @@ final class Benchmark implements BenchmarkInterface
     public static function getNewInstance(string $instanceName): BenchmarkInterface
     {
         if (!array_key_exists($instanceName, self::$instances)) {
-            self::$instances[$instanceName] = new self();
+            $benchmark = new self();
+            $benchmark->setInstanceName($instanceName);
+            self::$instances[$instanceName] = $benchmark;
         }
 
         return self::$instances[$instanceName];
@@ -312,6 +316,20 @@ final class Benchmark implements BenchmarkInterface
         }
 
         return (string) sprintf($format, round($size, $round), $units[$i]);
+    }
+
+    //--------------------------------------------------------------------------
+
+    private function setInstanceName($instanceName)
+    {
+        $this->instanceName = $instanceName;
+    }
+
+    //--------------------------------------------------------------------------
+
+    private function getInstanceName(): string
+    {
+        return $this->instanceName;
     }
 
     //--------------------------------------------------------------------------

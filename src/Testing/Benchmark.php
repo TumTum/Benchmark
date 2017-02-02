@@ -127,6 +127,7 @@ final class Benchmark implements BenchmarkInterface
             $displaymode_end   = self::CRLF . '</pre>';
         }
 
+        $dataBoard = [];
         $dataBoard[0] = $displaymode_start . ' ======== [ BENCHMARK DATA ] ======== ';
         $dataBoard[1] = '        Instance: ' . $this->getInstanceName();
         $dataBoard[2] = '    Elapsed Time: ' . $this->getTime();
